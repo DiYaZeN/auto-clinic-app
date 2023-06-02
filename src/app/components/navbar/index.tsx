@@ -5,11 +5,11 @@ import { Logo } from "../logo";
 import { NavItems } from "./navItems";
 
 const NavBarContainer = styled.div`
-  min-height: 68px;
+min-height: 68px;
+
   ${tw`
     w-full
-    min-w-full
-    max-w-2xl
+    max-w-screen-2xl
     flex
     flex-row
     items-center
@@ -17,6 +17,7 @@ const NavBarContainer = styled.div`
     lg:pr-12
     justify-between
   `};
+
 `;
 
 const  LogoContainer = styled.div``;    
