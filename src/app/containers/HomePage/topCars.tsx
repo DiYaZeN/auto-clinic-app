@@ -15,6 +15,7 @@ import { createSelector } from "reselect";
 // import { makeSelectTopCars } from "./selectors";
 // import MoonLoader from "react-spinners/MoonLoader";
 import { Button } from "../../components/buttons";
+import { resolve } from "path";
 
 const TopCarsContainer = styled.div`
   ${tw`
@@ -105,18 +106,60 @@ export function TopCars() {
       };
     
 
+      const cars = 
+        [(<Car {...testCar} />),
+            ( <Car {...testCar2} />  ), 
+            ( <Car {...testCar2} />  ),
+            ( <Car {...testCar} 
+            />  )]
+      ;
 
+        const isMobile = useMediaQuery({ maxWidth: screens.sm });  
 
-
+        const numberOfDots = isMobile ? cars.length : Math.ceil(cars.length / 3);
   return (
     <TopCarsContainer>
      <Title>Explore Our Top Deals</Title>
      <CarsContainer> 
-         <Carousel value= {current} onChange= {setCurrent}  slides={[(<Car {...testCar} />),
-               ( <Car {...testCar2} />  ), ( <Car {...testCar2} />  ),( <Car {...testCar} />  )]}>
-         </Carousel>
-            <Dots value={current} onChange={setCurrent} number={2} />
+     <Carousel
+            value={current}
+            onChange={setCurrent}
+            slides={cars}
+            plugins={[
+              "clickToChange",
+              {
+                resolve: slidesToShowPlugin,
+                options: {
+                  numberOfSlides: 3,
+                },
+              },
+            ]}
+            breakpoints={{
+              640: {
+                plugins: [
+                  {
+                    resolve: slidesToShowPlugin,
+                    options: {
+                      numberOfSlides: 1,
+                    },
+                  },
+                ],
+              },
+              900: {
+                plugins: [
+                  {
+                    resolve: slidesToShowPlugin,
+                    options: {
+                      numberOfSlides: 2,
+                    }, 
+                  },
+                ],
+              },
+            }}
+          />
+
+            <Dots value={current} onChange={setCurrent} number={numberOfDots} />
      </CarsContainer>
-    </TopCarsContainer>
+    </TopCarsContainer> 
   );
 }
