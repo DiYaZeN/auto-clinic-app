@@ -115,7 +115,7 @@ export function TopCars() {
          <Carousel value= {current} onChange= {setCurrent}  slides={[(<Car {...testCar} />),
                ( <Car {...testCar2} />  ), ( <Car {...testCar2} />  ),( <Car {...testCar} />  )]}>
          </Carousel>
-            <Dots value={current} onChange={setCurrent} number={4} />
+            <Dots value={current} onChange={setCurrent} number={2} />
      </CarsContainer>
     </TopCarsContainer>
   );
