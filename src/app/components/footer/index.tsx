@@ -240,7 +240,7 @@ export function Footer() {
       </InnerContainer>
       <BottomContainer>
         <CopyrightText>
-          Copyright &copy; {new Date().getFullYear()} AutClinic. All rights
+          Copyright &copy; {new Date().getFullYear()} AutoClinic. All rights
           reserved.
         </CopyrightText>
       </BottomContainer>

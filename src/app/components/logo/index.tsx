@@ -46,7 +46,7 @@ export function Logo(props: ILogoProps) {
       <Image>
         <img src={bgColor === "dark" ? CarLogoDarkImg : CarLogoImg} alt="logo"/>
       </Image>
-      <LogoText color={color || "dark"}>AutoClinic.</LogoText>
+      <LogoText color={color || "dark"}>AutoClinic. Rent A Car</LogoText>
     </LogoContainer>
   );
 }
